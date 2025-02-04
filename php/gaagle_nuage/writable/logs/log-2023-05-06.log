@@ -1,0 +1,174 @@
+CRITICAL - 2023-05-06 09:48:00 --> Undefined property: stdClass::$nom
+in APPPATH/Views/Entreprise/ListeEntreprise.php on line 20.
+ 1 APPPATH/Views/Entreprise/ListeEntreprise.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$nom', '/var/www/html/gaagle_nuage/app/Views/Entreprise/ListeEntreprise.php', 20)
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/gaagle_nuage/app/Views/Entreprise/ListeEntreprise.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('Entreprise/ListeEntreprise', [], true)
+ 5 APPPATH/Controllers/Home.php(16): view('Entreprise/ListeEntreprise', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeEntreprise()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')
+CRITICAL - 2023-05-06 09:48:08 --> Undefined property: stdClass::$nom
+in APPPATH/Views/Entreprise/ListeEntrepriseBloque.php on line 21.
+ 1 APPPATH/Views/Entreprise/ListeEntrepriseBloque.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$nom', '/var/www/html/gaagle_nuage/app/Views/Entreprise/ListeEntrepriseBloque.php', 21)
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/gaagle_nuage/app/Views/Entreprise/ListeEntrepriseBloque.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('Entreprise/ListeEntrepriseBloque', [], true)
+ 5 APPPATH/Controllers/Home.php(23): view('Entreprise/ListeEntrepriseBloque', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeEntrepriseBloque()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')
+CRITICAL - 2023-05-06 09:48:14 --> Undefined property: stdClass::$nom
+in APPPATH/Views/Contrat/ListeContrat.php on line 23.
+ 1 APPPATH/Views/Contrat/ListeContrat.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$nom', '/var/www/html/gaagle_nuage/app/Views/Contrat/ListeContrat.php', 23)
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/gaagle_nuage/app/Views/Contrat/ListeContrat.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('Contrat/ListeContrat', [], true)
+ 5 APPPATH/Controllers/Home.php(30): view('Contrat/ListeContrat', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeContrat()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')
+ERROR - 2023-05-06 09:52:19 --> ErrorException: pg_query(): Query failed: ERROR:  relation &quot;vueentpcourrier&quot; does not exist
+LINE 1: SELECT * FROM VueEntpCourrier
+                      ^ in /var/www/html/gaagle_nuage/system/Database/postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/g...', 147)
+#1 /var/www/html/gaagle_nuage/system/Database/postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT * FROM V...')
+#2 /var/www/html/gaagle_nuage/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT * FROM V...')
+#3 /var/www/html/gaagle_nuage/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM V...')
+#4 /var/www/html/gaagle_nuage/app/Models/entreprise.php(13): CodeIgniter\Database\BaseConnection->query('SELECT * FROM V...')
+#5 /var/www/html/gaagle_nuage/app/Controllers/Home.php(15): App\Models\Entreprise->getEntreprises()
+#6 /var/www/html/gaagle_nuage/system/CodeIgniter.php(934): App\Controllers\Home->pageListeEntreprise()
+#7 /var/www/html/gaagle_nuage/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/gaagle_nuage/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/gaagle_nuage/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/gaagle_nuage/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/g...')
+#11 {main}
+CRITICAL - 2023-05-06 09:52:19 --> pg_query(): Query failed: ERROR:  relation &quot;vueentpcourrier&quot; does not exist
+LINE 1: SELECT * FROM VueEntpCourrier
+                      ^
+in SYSTEMPATH/Database/postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  relation &quot;vueentpcourrier&quot; does not exist
+LINE 1: SELECT * FROM VueEntpCourrier
+                      ^', '/var/www/html/gaagle_nuage/system/Database/postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT * FROM VueEntpCourrier')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT * FROM VueEntpCourrier')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM VueEntpCourrier')
+ 5 APPPATH/Models/entreprise.php(13): CodeIgniter\Database\BaseConnection->query('SELECT * FROM VueEntpCourrier')
+ 6 APPPATH/Controllers/Home.php(15): App\Models\Entreprise->getEntreprises()
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeEntreprise()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')
+ERROR - 2023-05-06 09:52:25 --> ErrorException: pg_query(): Query failed: ERROR:  relation &quot;vueentpnbbycontrat&quot; does not exist
+LINE 1: SELECT * FROM VueEntpNbByContrat
+                      ^ in /var/www/html/gaagle_nuage/system/Database/postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/g...', 147)
+#1 /var/www/html/gaagle_nuage/system/Database/postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT * FROM V...')
+#2 /var/www/html/gaagle_nuage/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT * FROM V...')
+#3 /var/www/html/gaagle_nuage/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM V...')
+#4 /var/www/html/gaagle_nuage/app/Models/Contrat.php(13): CodeIgniter\Database\BaseConnection->query('SELECT * FROM V...')
+#5 /var/www/html/gaagle_nuage/app/Controllers/Home.php(29): App\Models\Contrat->getContrat()
+#6 /var/www/html/gaagle_nuage/system/CodeIgniter.php(934): App\Controllers\Home->pageListeContrat()
+#7 /var/www/html/gaagle_nuage/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/gaagle_nuage/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/gaagle_nuage/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/gaagle_nuage/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/g...')
+#11 {main}
+CRITICAL - 2023-05-06 09:52:25 --> pg_query(): Query failed: ERROR:  relation &quot;vueentpnbbycontrat&quot; does not exist
+LINE 1: SELECT * FROM VueEntpNbByContrat
+                      ^
+in SYSTEMPATH/Database/postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  relation &quot;vueentpnbbycontrat&quot; does not exist
+LINE 1: SELECT * FROM VueEntpNbByContrat
+                      ^', '/var/www/html/gaagle_nuage/system/Database/postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT * FROM VueEntpNbByContrat')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT * FROM VueEntpNbByContrat')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM VueEntpNbByContrat')
+ 5 APPPATH/Models/Contrat.php(13): CodeIgniter\Database\BaseConnection->query('SELECT * FROM VueEntpNbByContrat')
+ 6 APPPATH/Controllers/Home.php(29): App\Models\Contrat->getContrat()
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeContrat()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')
+CRITICAL - 2023-05-06 11:59:04 --> Undefined property: stdClass::$entreprise1
+in APPPATH/Views/Etudiant/ListeEtudiant2FinAnticipe.php on line 24.
+ 1 APPPATH/Views/Etudiant/ListeEtudiant2FinAnticipe.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$entreprise1', '/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeEtudiant2FinAnticipe.php', 24)
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeEtudiant2FinAnticipe.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('Etudiant/ListeEtudiant2FinAnticipe', [], true)
+ 5 APPPATH/Controllers/Home.php(79): view('Etudiant/ListeEtudiant2FinAnticipe', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeEtudiant2FinAnticipe()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')
+CRITICAL - 2023-05-06 11:59:15 --> Undefined property: stdClass::$entreprise1
+in APPPATH/Views/Etudiant/ListeEtudiant2FinAnticipe.php on line 24.
+ 1 APPPATH/Views/Etudiant/ListeEtudiant2FinAnticipe.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$entreprise1', '/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeEtudiant2FinAnticipe.php', 24)
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeEtudiant2FinAnticipe.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('Etudiant/ListeEtudiant2FinAnticipe', [], true)
+ 5 APPPATH/Controllers/Home.php(79): view('Etudiant/ListeEtudiant2FinAnticipe', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeEtudiant2FinAnticipe()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')
+CRITICAL - 2023-05-06 12:54:25 --> Undefined property: stdClass::$findecontrat1
+in APPPATH/Views/Etudiant/ListeEtudiant2FinAnticipe.php on line 25.
+ 1 APPPATH/Views/Etudiant/ListeEtudiant2FinAnticipe.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$findecontrat1', '/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeEtudiant2FinAnticipe.php', 25)
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeEtudiant2FinAnticipe.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('Etudiant/ListeEtudiant2FinAnticipe', [], true)
+ 5 APPPATH/Controllers/Home.php(79): view('Etudiant/ListeEtudiant2FinAnticipe', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeEtudiant2FinAnticipe()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')
+CRITICAL - 2023-05-06 12:55:47 --> Undefined property: stdClass::$entreprise2
+in APPPATH/Views/Etudiant/ListeEtudiant2FinAnticipe.php on line 26.
+ 1 APPPATH/Views/Etudiant/ListeEtudiant2FinAnticipe.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$entreprise2', '/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeEtudiant2FinAnticipe.php', 26)
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeEtudiant2FinAnticipe.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('Etudiant/ListeEtudiant2FinAnticipe', [], true)
+ 5 APPPATH/Controllers/Home.php(79): view('Etudiant/ListeEtudiant2FinAnticipe', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeEtudiant2FinAnticipe()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')
+CRITICAL - 2023-05-06 13:02:46 --> Undefined property: stdClass::$etudiant
+in APPPATH/Views/Etudiant/ListeStagiaire.php on line 20.
+ 1 APPPATH/Views/Etudiant/ListeStagiaire.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$etudiant', '/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeStagiaire.php', 20)
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeStagiaire.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('Etudiant/ListeStagiaire', [], true)
+ 5 APPPATH/Controllers/Home.php(58): view('Etudiant/ListeStagiaire', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeStagiaire()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')
+CRITICAL - 2023-05-06 13:10:42 --> Undefined property: stdClass::$etudiant
+in APPPATH/Views/Etudiant/ListeEtudiant.php on line 20.
+ 1 APPPATH/Views/Etudiant/ListeEtudiant.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$etudiant', '/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeEtudiant.php', 20)
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/gaagle_nuage/app/Views/Etudiant/ListeEtudiant.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('Etudiant/ListeEtudiant', [], true)
+ 5 APPPATH/Controllers/Home.php(51): view('Etudiant/ListeEtudiant', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->pageListeEtudiant()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/gaagle_nuage/public/index.php')

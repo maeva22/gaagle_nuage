@@ -1,0 +1,592 @@
+CRITICAL - 2023-05-02 15:15:47 --> Too few arguments to function App\Models\EtudiantModel::__construct(), 0 passed in /var/www/html/yggedu/app/Controllers/Home.php on line 18 and exactly 2 expected
+in APPPATH/Models/EtudiantModel.php on line 15.
+ 1 APPPATH/Controllers/Home.php(18): App\Models\EtudiantModel->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 15:16:23 --> Call to a member function getResult() on array
+in APPPATH/Controllers/Home.php on line 21.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 15:17:45 --> Too few arguments to function App\Models\EntrepriseModel::__construct(), 0 passed in /var/www/html/yggedu/app/Controllers/Home.php on line 18 and exactly 7 expected
+in APPPATH/Models/EntrepriseModel.php on line 20.
+ 1 APPPATH/Controllers/Home.php(18): App\Models\EntrepriseModel->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 15:42:29 --> Undefined variable $query
+in APPPATH/Models/EntrepriseModel.php on line 105.
+ 1 APPPATH/Models/EntrepriseModel.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $query', '/var/www/html/yggedu/app/Models/EntrepriseModel.php', 105)
+ 2 APPPATH/Controllers/Home.php(24): App\Models\EntrepriseModel->SelectBy([...])
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 15:43:47 --> ErrorException: pg_query(): Query failed: ERROR:  syntax error at or near &quot;bloque&quot;
+LINE 1: Select * from Entreprise where id = '1' bloque = 'false'
+                                                ^ in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'Select * from E...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('Select * from E...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('Select * from E...')
+#4 /var/www/html/yggedu/app/Models/EntrepriseModel.php(106): CodeIgniter\Database\BaseConnection->query('Select * from E...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(24): App\Models\EntrepriseModel->SelectBy(Array)
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 15:43:47 --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;bloque&quot;
+LINE 1: Select * from Entreprise where id = '1' bloque = 'false'
+                                                ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  syntax error at or near &quot;bloque&quot;
+LINE 1: Select * from Entreprise where id = \'1\' bloque = \'false\'
+                                                ^', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'Select * from Entreprise where id = \'1\' bloque = \'false\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('Select * from Entreprise where id = \'1\' bloque = \'false\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('Select * from Entreprise where id = \'1\' bloque = \'false\'')
+ 5 APPPATH/Models/EntrepriseModel.php(106): CodeIgniter\Database\BaseConnection->query('Select * from Entreprise where id = :id: bloque = :bloque:', [...])
+ 6 APPPATH/Controllers/Home.php(24): App\Models\EntrepriseModel->SelectBy([...])
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 15:43:55 --> ErrorException: pg_query(): Query failed: ERROR:  syntax error at or near &quot;bloque&quot;
+LINE 1: Select * from Entreprise where id = '1' bloque = 'f'
+                                                ^ in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'Select * from E...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('Select * from E...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('Select * from E...')
+#4 /var/www/html/yggedu/app/Models/EntrepriseModel.php(106): CodeIgniter\Database\BaseConnection->query('Select * from E...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(24): App\Models\EntrepriseModel->SelectBy(Array)
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 15:43:55 --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;bloque&quot;
+LINE 1: Select * from Entreprise where id = '1' bloque = 'f'
+                                                ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  syntax error at or near &quot;bloque&quot;
+LINE 1: Select * from Entreprise where id = \'1\' bloque = \'f\'
+                                                ^', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'Select * from Entreprise where id = \'1\' bloque = \'f\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('Select * from Entreprise where id = \'1\' bloque = \'f\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('Select * from Entreprise where id = \'1\' bloque = \'f\'')
+ 5 APPPATH/Models/EntrepriseModel.php(106): CodeIgniter\Database\BaseConnection->query('Select * from Entreprise where id = :id: bloque = :bloque:', [...])
+ 6 APPPATH/Controllers/Home.php(24): App\Models\EntrepriseModel->SelectBy([...])
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 15:47:28 --> Undefined variable $slq
+in APPPATH/Models/EntrepriseModel.php on line 100.
+ 1 APPPATH/Models/EntrepriseModel.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $slq', '/var/www/html/yggedu/app/Models/EntrepriseModel.php', 100)
+ 2 APPPATH/Controllers/Home.php(24): App\Models\EntrepriseModel->SelectBy([...])
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 15:47:45 --> Undefined variable $slq
+in APPPATH/Models/EntrepriseModel.php on line 100.
+ 1 APPPATH/Models/EntrepriseModel.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $slq', '/var/www/html/yggedu/app/Models/EntrepriseModel.php', 100)
+ 2 APPPATH/Controllers/Home.php(24): App\Models\EntrepriseModel->SelectBy([...])
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 16:06:51 --> Too few arguments to function App\Models\EntrepriseModel::update(), 2 passed in /var/www/html/yggedu/app/Controllers/Home.php on line 29 and exactly 8 expected
+in APPPATH/Models/EntrepriseModel.php on line 67.
+ 1 APPPATH/Controllers/Home.php(29): App\Models\EntrepriseModel->update([...], '1')
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 16:07:30 --> Undefined variable $sqm
+in APPPATH/Models/SiteModel.php on line 79.
+ 1 APPPATH/Models/SiteModel.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sqm', '/var/www/html/yggedu/app/Models/SiteModel.php', 79)
+ 2 APPPATH/Controllers/Home.php(29): App\Models\SiteModel->update([...], '1')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 16:07:53 --> ErrorException: pg_query(): Query failed: ERROR:  syntax error at or near &quot;=&quot;
+LINE 1: UPDATE Site setid = '139', where id = '1'
+                          ^ in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(81): CodeIgniter\Database\BaseConnection->query('UPDATE Site set...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(29): App\Models\SiteModel->update(Array, '1')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 16:07:53 --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;=&quot;
+LINE 1: UPDATE Site setid = '139', where id = '1'
+                          ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  syntax error at or near &quot;=&quot;
+LINE 1: UPDATE Site setid = \'139\', where id = \'1\'
+                          ^', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site setid = \'139\', where id = \'1\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site setid = \'139\', where id = \'1\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site setid = \'139\', where id = \'1\'')
+ 5 APPPATH/Models/SiteModel.php(81): CodeIgniter\Database\BaseConnection->query('UPDATE Site setid = :id:, where id = :AncienId:', [...])
+ 6 APPPATH/Controllers/Home.php(29): App\Models\SiteModel->update([...], '1')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 16:08:27 --> ErrorException: pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = '139', where id = '1'
+                                    ^ in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(81): CodeIgniter\Database\BaseConnection->query('UPDATE Site set...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(29): App\Models\SiteModel->update(Array, '1')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 16:08:27 --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = '139', where id = '1'
+                                    ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = \'139\', where id = \'1\'
+                                    ^', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set id = \'139\', where id = \'1\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set id = \'139\', where id = \'1\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set id = \'139\', where id = \'1\'')
+ 5 APPPATH/Models/SiteModel.php(81): CodeIgniter\Database\BaseConnection->query('UPDATE Site set id = :id:, where id = :AncienId:', [...])
+ 6 APPPATH/Controllers/Home.php(29): App\Models\SiteModel->update([...], '1')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 16:08:38 --> ErrorException: pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = '139', where id = '1'
+                                    ^ in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(81): CodeIgniter\Database\BaseConnection->query('UPDATE Site set...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(29): App\Models\SiteModel->update(Array, '1')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 16:08:38 --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = '139', where id = '1'
+                                    ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = \'139\', where id = \'1\'
+                                    ^', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set id = \'139\', where id = \'1\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set id = \'139\', where id = \'1\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set id = \'139\', where id = \'1\'')
+ 5 APPPATH/Models/SiteModel.php(81): CodeIgniter\Database\BaseConnection->query('UPDATE Site set id = :id:, where id = :AncienId:', [...])
+ 6 APPPATH/Controllers/Home.php(29): App\Models\SiteModel->update([...], '1')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 16:09:23 --> ErrorException: pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = '139', where id = '1'
+                                    ^ in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(81): CodeIgniter\Database\BaseConnection->query('UPDATE Site set...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(29): App\Models\SiteModel->update(Array, '1')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 16:09:23 --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = '139', where id = '1'
+                                    ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = \'139\', where id = \'1\'
+                                    ^', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set id = \'139\', where id = \'1\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set id = \'139\', where id = \'1\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set id = \'139\', where id = \'1\'')
+ 5 APPPATH/Models/SiteModel.php(81): CodeIgniter\Database\BaseConnection->query('UPDATE Site set id = :id:, where id = :AncienId:', [...])
+ 6 APPPATH/Controllers/Home.php(29): App\Models\SiteModel->update([...], '1')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 16:09:32 --> ErrorException: pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = '139', where id = '1'
+                                    ^ in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(81): CodeIgniter\Database\BaseConnection->query('UPDATE Site set...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(29): App\Models\SiteModel->update(Array, '1')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 16:09:32 --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = '139', where id = '1'
+                                    ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  syntax error at or near &quot;where&quot;
+LINE 1: UPDATE Site set id = \'139\', where id = \'1\'
+                                    ^', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set id = \'139\', where id = \'1\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set id = \'139\', where id = \'1\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set id = \'139\', where id = \'1\'')
+ 5 APPPATH/Models/SiteModel.php(81): CodeIgniter\Database\BaseConnection->query('UPDATE Site set id = :id:, where id = :AncienId:', [...])
+ 6 APPPATH/Controllers/Home.php(29): App\Models\SiteModel->update([...], '1')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 16:11:29 --> ErrorException: pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;. in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(80): CodeIgniter\Database\BaseConnection->query('UPDATE Site set...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(28): App\Models\SiteModel->update(Array, '1')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 16:11:29 --> pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;.
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;.', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set id = \'139\' where id = \'1\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set id = \'139\' where id = \'1\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set id = \'139\' where id = \'1\'')
+ 5 APPPATH/Models/SiteModel.php(80): CodeIgniter\Database\BaseConnection->query('UPDATE Site set id = :id: where id = :AncienId:', [...])
+ 6 APPPATH/Controllers/Home.php(28): App\Models\SiteModel->update([...], '1')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 16:12:34 --> ErrorException: pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;. in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(80): CodeIgniter\Database\BaseConnection->query('UPDATE Site set...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(28): App\Models\SiteModel->update(Array, '1')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 16:12:34 --> pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;.
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;.', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set id = \'139\' where id = \'1\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set id = \'139\' where id = \'1\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set id = \'139\' where id = \'1\'')
+ 5 APPPATH/Models/SiteModel.php(80): CodeIgniter\Database\BaseConnection->query('UPDATE Site set id = :id: where id = :AncienId:', [...])
+ 6 APPPATH/Controllers/Home.php(28): App\Models\SiteModel->update([...], '1')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 16:14:28 --> Undefined variable $query
+in APPPATH/Models/SiteModel.php on line 89.
+ 1 APPPATH/Models/SiteModel.php(89): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $query', '/var/www/html/yggedu/app/Models/SiteModel.php', 89)
+ 2 APPPATH/Controllers/Home.php(28): App\Models\SiteModel->update([...], '1')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 16:15:34 --> ErrorException: pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;. in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(80): CodeIgniter\Database\BaseConnection->query('UPDATE Site set...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(28): App\Models\SiteModel->update(Array, '1')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 16:15:34 --> pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;.
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;.', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set id = \'11111\' where id = \'1\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set id = \'11111\' where id = \'1\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set id = \'11111\' where id = \'1\'')
+ 5 APPPATH/Models/SiteModel.php(80): CodeIgniter\Database\BaseConnection->query('UPDATE Site set id = :id: where id = :AncienId:', [...])
+ 6 APPPATH/Controllers/Home.php(28): App\Models\SiteModel->update([...], '1')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 19:14:15 --> ErrorException: pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;. in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(80): CodeIgniter\Database\BaseConnection->query('UPDATE Site set...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(28): App\Models\SiteModel->update(Array, '1')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 19:14:15 --> pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;.
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  update or delete on table &quot;site&quot; violates foreign key constraint &quot;contrat_site_fkey&quot; on table &quot;contrat&quot;
+DETAIL:  Key (id)=(1) is still referenced from table &quot;contrat&quot;.', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'UPDATE Site set id = \'11111\' where id = \'1\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('UPDATE Site set id = \'11111\' where id = \'1\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Site set id = \'11111\' where id = \'1\'')
+ 5 APPPATH/Models/SiteModel.php(80): CodeIgniter\Database\BaseConnection->query('UPDATE Site set id = :id: where id = :AncienId:', [...])
+ 6 APPPATH/Controllers/Home.php(28): App\Models\SiteModel->update([...], '1')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 19:19:29 --> Undefined variable $query
+in APPPATH/Models/SiteModel.php on line 89.
+ 1 APPPATH/Models/SiteModel.php(89): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $query', '/var/www/html/yggedu/app/Models/SiteModel.php', 89)
+ 2 APPPATH/Controllers/Home.php(28): App\Models\SiteModel->update([...], '1')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 19:20:23 --> Call to a member function getResult() on bool
+in APPPATH/Models/SiteModel.php on line 89.
+ 1 APPPATH/Controllers/Home.php(28): App\Models\SiteModel->update([...], '1')
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 19:21:11 --> Call to a member function getResult() on bool
+in APPPATH/Models/SiteModel.php on line 88.
+ 1 APPPATH/Controllers/Home.php(28): App\Models\SiteModel->update([...], '1')
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 19:23:02 --> Call to a member function getResult() on bool
+in APPPATH/Models/SiteModel.php on line 87.
+ 1 APPPATH/Controllers/Home.php(28): App\Models\SiteModel->update([...], '1')
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 19:25:59 --> foreach() argument must be of type array|object, int given
+in APPPATH/Controllers/Home.php on line 29.
+ 1 APPPATH/Controllers/Home.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, int given', '/var/www/html/yggedu/app/Controllers/Home.php', 29)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 19:53:31 --> ErrorException: pg_query(): Query failed: ERROR:  value &quot;9999999999999&quot; is out of range for type integer
+LINE 1: DELETE FROM Site WHERE id= '9999999999999'
+                                   ^ in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'DELETE FROM Sit...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('DELETE FROM Sit...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM Sit...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(50): CodeIgniter\Database\BaseConnection->query('DELETE FROM Sit...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(19): App\Models\SiteModel->delete('9999999999999')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 19:53:31 --> pg_query(): Query failed: ERROR:  value &quot;9999999999999&quot; is out of range for type integer
+LINE 1: DELETE FROM Site WHERE id= '9999999999999'
+                                   ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  value &quot;9999999999999&quot; is out of range for type integer
+LINE 1: DELETE FROM Site WHERE id= \'9999999999999\'
+                                   ^', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'DELETE FROM Site WHERE id= \'9999999999999\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('DELETE FROM Site WHERE id= \'9999999999999\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM Site WHERE id= \'9999999999999\'')
+ 5 APPPATH/Models/SiteModel.php(50): CodeIgniter\Database\BaseConnection->query('DELETE FROM Site WHERE id= ?', [...])
+ 6 APPPATH/Controllers/Home.php(19): App\Models\SiteModel->delete('9999999999999')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 20:13:57 --> ErrorException: pg_query(): Query failed: ERROR:  value &quot;999999999999&quot; is out of range for type integer
+LINE 1: DELETE FROM Site WHERE id= '999999999999'
+                                   ^ in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'DELETE FROM Sit...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('DELETE FROM Sit...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM Sit...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(50): CodeIgniter\Database\BaseConnection->query('DELETE FROM Sit...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(19): App\Models\SiteModel->delete('999999999999')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 20:13:57 --> pg_query(): Query failed: ERROR:  value &quot;999999999999&quot; is out of range for type integer
+LINE 1: DELETE FROM Site WHERE id= '999999999999'
+                                   ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  value &quot;999999999999&quot; is out of range for type integer
+LINE 1: DELETE FROM Site WHERE id= \'999999999999\'
+                                   ^', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'DELETE FROM Site WHERE id= \'999999999999\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('DELETE FROM Site WHERE id= \'999999999999\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM Site WHERE id= \'999999999999\'')
+ 5 APPPATH/Models/SiteModel.php(50): CodeIgniter\Database\BaseConnection->query('DELETE FROM Site WHERE id= ?', [...])
+ 6 APPPATH/Controllers/Home.php(19): App\Models\SiteModel->delete('999999999999')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+ERROR - 2023-05-02 20:14:52 --> ErrorException: pg_query(): Query failed: ERROR:  invalid input syntax for type integer: &quot;&quot;
+LINE 1: DELETE FROM Site WHERE id= ''
+                                   ^ in /var/www/html/yggedu/system/Database/Postgre/Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', '/var/www/html/y...', 147)
+#1 /var/www/html/yggedu/system/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'DELETE FROM Sit...')
+#2 /var/www/html/yggedu/system/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('DELETE FROM Sit...')
+#3 /var/www/html/yggedu/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM Sit...')
+#4 /var/www/html/yggedu/app/Models/SiteModel.php(50): CodeIgniter\Database\BaseConnection->query('DELETE FROM Sit...', Array)
+#5 /var/www/html/yggedu/app/Controllers/Home.php(19): App\Models\SiteModel->delete('')
+#6 /var/www/html/yggedu/system/CodeIgniter.php(934): App\Controllers\Home->index()
+#7 /var/www/html/yggedu/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /var/www/html/yggedu/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/yggedu/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/yggedu/system/Commands/Server/rewrite.php(47): require_once('/var/www/html/y...')
+#11 {main}
+CRITICAL - 2023-05-02 20:14:52 --> pg_query(): Query failed: ERROR:  invalid input syntax for type integer: &quot;&quot;
+LINE 1: DELETE FROM Site WHERE id= ''
+                                   ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 147.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  invalid input syntax for type integer: &quot;&quot;
+LINE 1: DELETE FROM Site WHERE id= \'\'
+                                   ^', '/var/www/html/yggedu/system/Database/Postgre/Connection.php', 147)
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(147): pg_query(Object(PgSql\Connection), 'DELETE FROM Site WHERE id= \'\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('DELETE FROM Site WHERE id= \'\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM Site WHERE id= \'\'')
+ 5 APPPATH/Models/SiteModel.php(50): CodeIgniter\Database\BaseConnection->query('DELETE FROM Site WHERE id= ?', [...])
+ 6 APPPATH/Controllers/Home.php(19): App\Models\SiteModel->delete('')
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 20:45:19 --> Class "App\Models\Etudiant" not found
+in APPPATH/Controllers/Home.php on line 18.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 20:45:55 --> Undefined variable $nationalite
+in APPPATH/Models/EtudiantModel.php on line 48.
+ 1 APPPATH/Models/EtudiantModel.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nationalite', '/var/www/html/yggedu/app/Models/EtudiantModel.php', 48)
+ 2 APPPATH/Controllers/Home.php(19): App\Models\EtudiantModel->delete('1')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')
+CRITICAL - 2023-05-02 20:47:43 --> Undefined variable $nationalite
+in APPPATH/Models/EtudiantModel.php on line 48.
+ 1 APPPATH/Models/EtudiantModel.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nationalite', '/var/www/html/yggedu/app/Models/EtudiantModel.php', 48)
+ 2 APPPATH/Controllers/Home.php(19): App\Models\EtudiantModel->delete('1')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/yggedu/public/index.php')

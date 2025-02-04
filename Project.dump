@@ -1,0 +1,289 @@
+CREATE TYPE public."Enum" AS ENUM
+    ('Stage', 'Alternance');
+
+CREATE TABLE IF NOT EXISTS public.entreprise
+(
+    siren bigint NOT NULL,
+    nom character varying(255) COLLATE pg_catalog."default",
+    pays character varying(255) COLLATE pg_catalog."default",
+    ville character varying(255) COLLATE pg_catalog."default",
+    siege character varying(255) COLLATE pg_catalog."default",
+    nbemployes integer,
+    massesalariale integer,
+    bloque bit(1),
+    active bit(1),
+    CONSTRAINT entreprise_pkey PRIMARY KEY (siren)
+);
+
+CREATE TABLE IF NOT EXISTS public.site
+(
+    siret bigint NOT NULL,
+    siren bigint,
+    ville character varying(255) COLLATE pg_catalog."default",
+    adresse character varying(255) COLLATE pg_catalog."default",
+    bloque bit(1),
+    CONSTRAINT site_pkey PRIMARY KEY (siret),
+    CONSTRAINT site_siren_fkey FOREIGN KEY (siren)
+        REFERENCES public.entreprise (siren) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS public.employe
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 10000 CACHE 1 ),
+    nom character varying(255) COLLATE pg_catalog."default",
+    prenom character varying(255) COLLATE pg_catalog."default",
+    siret bigint,
+    siren bigint,
+    bloquema bit(1),
+    bloquev bit(1),
+    CONSTRAINT employe_pkey PRIMARY KEY (id),
+    CONSTRAINT employe_siren_fkey FOREIGN KEY (siren)
+        REFERENCES public.entreprise (siren) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT employe_siret_fkey FOREIGN KEY (siret)
+        REFERENCES public.site (siret) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS public.etudiant
+(
+    numeroetudiant integer NOT NULL,
+    nationalite character varying(255) COLLATE pg_catalog."default",
+    CONSTRAINT etudiant_pkey PRIMARY KEY (numeroetudiant)
+);
+
+CREATE TABLE IF NOT EXISTS public.contratetudiant
+(
+    numerocontrat integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 100000 CACHE 1 ),
+    siren bigint,
+    siret bigint,
+    datedebut date,
+    datefin date,
+    datefinanticipee date,
+    typecontrat "Enum" NOT NULL,
+    etudiant integer,
+    ma integer,
+    arretpremature bit(1),
+    noteetuentreprise double precision,
+    noteetuma double precision,
+    CONSTRAINT contratetudiant_pkey PRIMARY KEY (numerocontrat),
+    CONSTRAINT contratetudiant_etudiant_fkey FOREIGN KEY (etudiant)
+        REFERENCES public.etudiant (numeroetudiant) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT contratetudiant_ma_fkey FOREIGN KEY (ma)
+        REFERENCES public.employe (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT contratetudiant_siren_fkey FOREIGN KEY (siren)
+        REFERENCES public.entreprise (siren) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT contratetudiant_siret_fkey FOREIGN KEY (siret)
+        REFERENCES public.site (siret) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+
+CREATE TABLE IF NOT EXISTS public.contratvacataire
+(
+    numerocontrat integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 10000 CACHE 1 ),
+    datedebut date,
+    datefin date,
+    datefinanticipee date,
+    id_employe integer,
+    note double precision,
+    CONSTRAINT contratvacataire_pkey PRIMARY KEY (numerocontrat),
+    CONSTRAINT contratvacataire_id_employe_fkey FOREIGN KEY (id_employe)
+        REFERENCES public.employe (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS public.donation
+(
+    numerodonation integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 10000 CACHE 1 ),
+    montant double precision,
+    annee integer,
+    entreprise integer,
+    CONSTRAINT donation_pkey PRIMARY KEY (numerodonation),
+    CONSTRAINT donation_entreprise_fkey FOREIGN KEY (entreprise)
+        REFERENCES public.entreprise (siren) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS public.labo
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 10000 CACHE 1 ),
+    site character varying(255) COLLATE pg_catalog."default",
+    CONSTRAINT labo_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS public.contratlabo
+(
+    numerocontrat integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 100000 CACHE 1 ),
+    entreprise integer,
+    labo integer,
+    datedebut date,
+    datefin date,
+    datefinanticipee date,
+    referententreprise character varying(255) COLLATE pg_catalog."default",
+    CONSTRAINT contratlabo_pkey PRIMARY KEY (numerocontrat),
+    CONSTRAINT contratlabo_entreprise_fkey FOREIGN KEY (entreprise)
+        REFERENCES public.entreprise (siren) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT contratlabo_labo_fkey FOREIGN KEY (labo)
+        REFERENCES public.labo (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (832036537,'BRETAGNE RAYONNAGE 2' ,'France', 'Saint-Gregoire', '1 C All du Premier Aout 1944', 5, B'0', B'1');
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (491490835,'IMMO ART' ,'France', 'Landerneau', 'Le Leck', 35, B'0', B'1');
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (491498291,'INTS FRANCE' ,'France', 'Paris', '14 Rue des Jeuneurs', 202, B'0', B'1');
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (491507323,'SARL FITNESS FORME' ,'France', 'Lorient', '2 Rue Chaigneau', 5, B'0', B'1');
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (491524815,'SELARL PHARMACIE DE CASTEL NEVEZ' ,'France', 'Plouzane', 'ZAC Castel Nevez', 5, B'0', B'1');
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (491538047,'REGIONAL INTERIM DU LEON' ,'France', 'Montgermond', '25 Rue de la Metrie', 14, B'0', B'1');
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (434627741,'D''UN FIL A L''AUTRE' ,'France', 'Graces', 'ZI de Graces', 13, B'0', B'1');
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (832047682,'CASH AND REPAIR SAINT GREGOIRE' ,'France', 'Saint-Gregoire', 'ZI l Etang', 4, B'0', B'1');
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (491551537,'LES CISEAUX DE JO' ,'France', 'Saint-Vincent-Sur-Oust', '8 Rue de Redon', 1, B'0', B'1');
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (491551545,'CAFE CENTRAL' ,'France', 'Carantec', '4 PL de la Liberation', 1, B'0', B'1');
+INSERT INTO entreprise (Siren, Nom, Pays, Ville, Siege, nbemployes, bloque, Active) VALUES (832052484,'METHODES & VISION INGENIERIE INDUSTRIELLE' ,'France', 'Bains-sur-oust', '10 Imp Les Courtillaux', 1, B'1', B'1');
+
+
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (83203653700013, 832036537, 'Saint-Gregoire', '1 C All du Premier Aout 1944', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (49149083500023, 491490835, 'Landerneau', 'Le Leck', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (49149829100849, 491498291, 'Paris', '14 Rue des Jeuneurs', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (49150732300013, 491507323, 'Lorient', '2 Rue Chaigneau', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (49152481500017, 491524815, 'Plouzane', 'ZAC Castel Nevez', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (49153804700060, 491538047, 'Montgermond', '25 Rue de la Metrie', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (43462774100151, 434627741, 'Graces', 'ZI de Graces', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (83204768200014, 832047682, 'Saint-Gregoire', 'ZI l Etang', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (49155153700013, 491551537, 'Saint-Vincent-Sur-Oust', '8 Rue de Redon', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (49155154500016, 491551545, 'Carantec', '4 PL de la Liberation', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (49149829100012, 491498291, 'Toulouse', '5 Rue Saint Rome', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (49149829100420, 491498291, 'Lyon', '12 Rue de la Republique', B'0');
+INSERT INTO site (Siret, Siren, Ville, Adresse, Bloque) VALUES (83205248400017, 832052484, 'Bains-sur-oust', '10 Imp Les Courtillaux', B'1');
+
+
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Paul', 'Emile', 491490835, 49149083500023, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Dark', 'Vador', 491490835, 49149083500023, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Giselle', 'Breton', 491490835, 49155154500016, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Marc', 'Pochat', 434627741, 49155154500016, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('John', 'Wick', 491524815, 49152481500017, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Fabien', 'Emile', 491498291, 49149829100420, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Francois', 'Renaud', 491507323, 49150732300013, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Mathilde', 'Cheval', 491538047, 49153804700060, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Marguerite', 'Yoursenar', 491490835, 49149083500023, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Marc', 'Zuckerberg', 491498291, 49149829100849, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Jean', 'Bodelaire', 832052484, 83205248400017, B'0', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Henri', 'Boucher', 491490835, 49149083500023, B'1', B'0');
+INSERT INTO employe (Nom, Prenom, Siren, Siret, Bloquema, Bloquev) VALUES ('Marie', 'Lanvin', 491524815, 49152481500017, B'0', B'0');
+
+
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (01234, 'France');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (07583, 'France');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (08947, 'France');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (12985, 'Egypte');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (14723, 'France');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (18954, 'Angleterre');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (03897, 'Italie');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (04321, 'France');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (05432, 'France');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (02345, 'France');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (02395, 'France');
+INSERT INTO etudiant (numeroetudiant, nationalite) VALUES (24351, 'France');
+
+
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491490835, 49149083500023, '2022-09-05', '2025-09-05', NULL, 'Alternance', 01234, 2, B'0', NULL, NULL);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491490835, 49149083500023, '2021-03-01', '2021-08-31', NULL, 'Stage', 07583, 2, B'0', 7, 4);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (434627741, 49155154500016, '2020-03-01', '2020-08-31', '2020-03-15', 'Stage', 08947, 4, B'1', 0, 0);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491507323, 49150732300013, '2020-03-22', '2020-08-31', NULL, 'Stage', 08947, 7, B'0', 9, 8.5);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491490835, 49155154500016, '2021-09-05', '2024-09-05', NULL, 'Alternance', 12985, 3, B'0', NULL, NULL);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491490835, 49149083500023, '2023-03-01', '2023-08-31', NULL, 'Stage', 18954, 1, B'0', NULL, NULL);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491498291, 49149829100849, '2018-01-25', '2018-07-31', NULL, 'Stage', 05432, 10, B'0', 6, 5.5);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491490835, 49149083500023, '2022-09-05', '2025-09-05', NULL, 'Alternance', 14723, 9, B'0', NULL, NULL);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491490835, 49149083500023, '2021-09-05', '2024-09-05', NULL, 'Alternance', 03897, 9, B'0', NULL, NULL);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491490835, 49149083500023, '2020-09-05', '2023-09-05', NULL, 'Alternance', 04321, 9, B'0', NULL, NULL);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491490835, 49149083500023, '2019-09-05', '2022-09-05', NULL, 'Alternance', 02345, 9, B'0', 9.5, 9);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491524815, 49152481500017, '2022-09-05', '2025-09-05', NULL, 'Alternance', 02395, 13, B'0',NULL, NULL);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491538047, 49153804700060, '2009-09-05', '2012-09-05', '2010-12-10', 'Alternance', 24351, 6, B'1',NULL, NULL);
+INSERT INTO contratetudiant (siren, siret, datedebut, datefin, datefinanticipee, typecontrat, etudiant, ma, arretpremature, noteetuentreprise, noteetuma) VALUES (491538047, 49153804700060, '2015-09-01', '2018-09-05', '2017-02-10', 'Alternance', 24351, 3, B'1',NULL, NULL);
+
+
+INSERT INTO contratvacataire (datedebut, datefin, datefinanticipee, id_employe, note) VALUES ('2019-09-05', '2024-09-05', NULL, 7,NULL);
+INSERT INTO contratvacataire (datedebut, datefin, datefinanticipee, id_employe, note) VALUES ('2018-09-05', '2023-09-05', NULL, 4,NULL);
+INSERT INTO contratvacataire (datedebut, datefin, datefinanticipee, id_employe, note) VALUES ('2015-09-05', '2020-09-05', NULL, 1,7.5);
+INSERT INTO contratvacataire (datedebut, datefin, datefinanticipee, id_employe, note) VALUES ('2020-09-05', '2025-09-05', NULL, 1, NULL);
+INSERT INTO contratvacataire (datedebut, datefin, datefinanticipee, id_employe, note) VALUES ('2013-09-05', '2018-09-05', NULL, 9, 10);
+INSERT INTO contratvacataire (datedebut, datefin, datefinanticipee, id_employe, note) VALUES ('2022-09-05', '2026-09-05', NULL, 13, NULL);
+
+INSERT INTO donation (montant, annee, entreprise) VALUES (100000, 2018, 491490835);
+INSERT INTO donation (montant, annee, entreprise) VALUES (20000, 2021, 491507323);
+INSERT INTO donation (montant, annee, entreprise) VALUES (50000, 2021, 491507323);
+INSERT INTO donation (montant, annee, entreprise) VALUES (80000, 2022, 491490835);
+INSERT INTO donation (montant, annee, entreprise) VALUES (30000, 2018, 491538047);
+
+INSERT INTO labo (site) VALUES ('Lannion');
+INSERT INTO labo (site) VALUES ('Vannes');
+INSERT INTO labo (site) VALUES ('Rennes');
+INSERT INTO labo (site) VALUES ('Rennes');
+INSERT INTO labo (site) VALUES ('Morlaix');
+INSERT INTO labo (site) VALUES ('Brest');
+INSERT INTO labo (site) VALUES ('St-Brieuc');
+
+INSERT INTO contratlabo (entreprise, labo, datedebut, datefin, datefinanticipee, referententreprise) VALUES (491490835, 1, '2016-01-01', '2030-12-31', NULL, 'Jaques Paul');
+INSERT INTO contratlabo (entreprise, labo, datedebut, datefin, datefinanticipee, referententreprise) VALUES (491490835, 1, '2001-01-01', '2016-12-31', NULL, 'Alain Bernard');
+INSERT INTO contratlabo (entreprise, labo, datedebut, datefin, datefinanticipee, referententreprise) VALUES (491507323, 2, '2013-01-01', '2022-12-31', NULL, 'Cédric Diggory');
+INSERT INTO contratlabo (entreprise, labo, datedebut, datefin, datefinanticipee, referententreprise) VALUES (491490835, 7, '2015-01-01', '2025-12-31', NULL, 'Armelle Klass');
+
+
+CREATE VIEW VueEntpCourrier AS SELECT Nom, Siege AS Adresse FROM Entreprise;
+CREATE VIEW VueEntpBlocked AS SELECT Nom FROM Entreprise WHERE bloque=B'1';
+CREATE VIEW VueVacMds AS SELECT DISTINCT E.Nom, E.Prenom FROM employe E JOIN contratvacataire CV ON E.ID = cv.id_employe JOIN contratetudiant CE ON E.ID = ce.ma WHERE ce.typecontrat = 'Alternance';
+CREATE VIEW VueVacMdsCurrent AS SELECT DISTINCT E.Nom, E.Prenom FROM employe E JOIN contratvacataire CV ON E.ID = cv.id_employe JOIN contratetudiant CE ON E.ID = ce.ma WHERE ce.typecontrat = 'Alternance' AND (DATE_PART('year', ce.datefin) > DATE_PART('year', CURRENT_DATE)) AND ce.arretpremature = B'0' AND (DATE_PART('year', cv.datefin) > DATE_PART('year', CURRENT_DATE)) AND cv.datefinanticipee IS NULL;
+CREATE VIEW VueEntpNbByContrat AS
+SELECT e.nom,
+    COUNT(DISTINCT cv.numerocontrat) AS nb_vacataire,
+    COUNT(DISTINCT cl.numerocontrat) AS nb_labo,
+    contratetudiant.nbA,
+    contratetudiant.nbs,
+    (contratetudiant.nbA + contratetudiant.nbs + COUNT(DISTINCT cv.numerocontrat) + COUNT(DISTINCT cl.numerocontrat)) AS nb_contrats
+FROM entreprise e 
+LEFT JOIN employe em ON e.siren=em.siren
+LEFT JOIN contratvacataire cv ON cv.id_employe = em.id
+LEFT JOIN 
+( SELECT ce.siren, SUM(case when ce.typecontrat='Alternance' then 1 ELSE 0 end)nbA,
+    SUM(case when ce.typecontrat='Stage' then 1 else 0 end)nbS
+    FROM contratetudiant ce  GROUP BY ce.siren)contratetudiant ON contratetudiant.siren=e.siren
+LEFT JOIN contratlabo cl ON cl.entreprise = e.siren 
+GROUP BY e.nom,contratetudiant.nbA,contratetudiant.nbs;
+CREATE VIEW VueLaboContrat AS SELECT * FROM contratlabo;
+CREATE VIEW VueMds AS SELECT DISTINCT e.nom, e.prenom FROM employe e JOIN contratetudiant ce ON ce.ma = e.id;
+CREATE VIEW VueVacataire AS SELECT DISTINCT e.nom, e.prenom FROM employe e JOIN contratvacataire cv ON cv.id_employe = e.id;
+CREATE VIEW VueAlternant AS SELECT DISTINCT etudiant, nationalite FROM contratetudiant LEFT JOIN etudiant ON numeroetudiant=etudiant WHERE typecontrat='Alternance';
+CREATE VIEW VueStagiare AS SELECT DISTINCT etudiant, nationalite FROM contratetudiant LEFT JOIN etudiant ON numeroetudiant=etudiant WHERE typecontrat='Stage';
+CREATE VIEW VueEtudiant AS SELECT DISTINCT numeroetudiant,  nationalite FROM etudiant;
+CREATE VIEW VueConflict AS SELECT DISTINCT DATE_PART('year', datedebut) AS annee_debut, DATE_PART('year', datefinanticipee) AS anneefin,typecontrat,e.nom FROM contratetudiant JOIN entreprise e ON e.siren = contratetudiant.siren WHERE arretpremature = B'1' ORDER BY e.nom, DATE_PART('year', datedebut);
+CREATE VIEW VueYearStatEntps AS SELECT DISTINCT e.nom, DATE_PART('year', datedebut) AS annee, COUNT(DISTINCT numerocontrat) AS nb_contrat, AVG(noteetuentreprise), MIN(noteetuentreprise), MAX(noteetuentreprise) FROM contratetudiant JOIN entreprise e ON e.siren = contratetudiant.siren WHERE datefin<now() OR datefinanticipee<now() GROUP BY DATE_PART('year', datedebut), e.siren ORDER BY DATE_PART('year', datedebut) DESC;
+CREATE VIEW VueConflitEtudiant AS SELECT etudiant,siren,datefin, arretpremature from contratetudiant where arretpremature=B'1';
+CREATE VIEW VueConflitEtudiant2 AS
+SELECT DISTINCT c1.etudiant,
+c1.siren AS "entreprise1",
+c1.datefinanticipee AS "findecontratpremature1",
+c2.siren AS "entreprise2",c2.datefinanticipee AS "findecontratpremature2" 
+FROM contratetudiant AS c1 join contratetudiant AS c2 ON  c1.etudiant=c2.etudiant
+WHERE c1.etudiant IN (SELECT  etudiant FROM contratetudiant 
+					   WHERE arretpremature=B'1'
+					   AND c1.datefinanticipee != c2.datefinanticipee
+					   AND c1.datedebut<c2.datedebut
+					   GROUP BY etudiant 
+					   HAVING COUNT(etudiant)=2);
+CREATE VIEW VueMdsNote AS SELECT DISTINCT date_part('year',contratetudiant.datedebut) AS ANNEE, employe.nom, employe.prenom, avg(noteetuma) from employe join entreprise on entreprise.siren=employe.siren join contratetudiant on entreprise.siren=contratetudiant.siren where contratetudiant.ma is not null group by date_part('year',contratetudiant.datedebut), employe.nom, employe.prenom order by ANNEE desc, employe.nom asc;
