@@ -4,7 +4,7 @@ INSTALLATION DES FICHIERS EN LOCAL
 
 1) Faire un clone en local du projet :
 ```shell
-git clone https://gitlab.enssat.fr/iai_2023/gaagle_nuage.git
+[git clone https://gitlab.enssat.fr/iai_2023/gaagle_nuage.git](https://github.com/maeva22/gaagle_nuage.git)
 ```
 2) Création du dossier "pgadmin" et attribution de droit à ce dossier
 
