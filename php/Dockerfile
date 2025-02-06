@@ -1,8 +1,5 @@
 FROM php:8.2-apache
-RUN  apt-get update 
-RUN  apt-get upgrade -y 
-RUN  apt install libpq5 
-RUN  apt install libpq-dev 
+RUN  apt-get update && apt-get upgrade -y && apt install libpq-dev 
 RUN  apt-get -y update \
     &&  apt-get install -y libicu-dev \
     &&  docker-php-ext-configure intl \
