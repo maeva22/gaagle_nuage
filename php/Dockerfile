@@ -10,4 +10,5 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
     php -r "unlink('composer-setup.php');"
 CMD [ "php", "gaagle_nuage/spark","serve","--host","0.0.0.0","--port","8000"]
+RUN echo 'test'
 EXPOSE 8000
