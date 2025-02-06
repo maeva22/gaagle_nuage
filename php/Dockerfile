@@ -1,9 +1,9 @@
 FROM php:8.2-apache
-RUN apt-get update && apt-get upgrade -y && apt install libpq-dev 
-RUN apt-get -y update \
-    && apt-get install -y libicu-dev \
-    && docker-php-ext-configure intl \
-    && docker-php-ext-install intl
+RUN sudo apt-get update && sudo apt-get upgrade -y && sudo apt install libpq5 && sudo apt install libpq-dev 
+RUN sudo apt-get -y update \
+    && sudo apt-get install -y libicu-dev \
+    && sudo docker-php-ext-configure intl \
+    && sudo docker-php-ext-install intl
 RUN docker-php-ext-install pdo_mysql mysqli pgsql pdo_pgsql && docker-php-ext-enable pdo_mysql mysqli pgsql pdo_pgsql && a2enmod rewrite && \
     apachectl restart
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
