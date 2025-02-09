@@ -1,2 +1,2 @@
 FROM nginx
-COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY .gaagle_nuage/nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
