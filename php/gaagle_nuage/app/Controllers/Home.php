@@ -6,7 +6,9 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('header').view('index');
+        $entreprise = new \App\Models\Entreprise();
+        $data['entreprises'] = $entreprise->getEntreprises();
+        return view('header').view('index',$data);
     }
 
     public function pageListeEntreprise()
