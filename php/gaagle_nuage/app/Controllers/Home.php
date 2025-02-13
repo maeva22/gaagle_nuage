@@ -11,14 +11,14 @@ class Home extends BaseController
 
     public function pageListeEntreprise()
     {   
-        $entreprise = new \App\Models\entreprise();
+        $entreprise = new \App\Models\Entreprise();
         $data['entreprises'] = $entreprise->getEntreprises();
         return view('header').view('Entreprise/ListeEntreprise',$data);
     }
 
     public function pageListeEntrepriseBloque()
     {
-        $entreprise = new \App\Models\entreprise();
+        $entreprise = new \App\Models\Entreprise();
         $data['entpBlocked'] = $entreprise->getEntreprisesBlocked();
         return view('header').view('Entreprise/ListeEntrepriseBloque',$data);
     }
